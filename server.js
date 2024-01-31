@@ -37,8 +37,9 @@ app.use(express.json());
 app.post('/register', async (req, res) => {
     const { firstName, lastName, email, announcementEmail, degrees, password } = req.body;
 
+    console.log('Received registration request:', req.body);
+
     try {
-        // No hashing for simplicity
         const newUser = new User({
             firstName,
             lastName,
@@ -48,11 +49,15 @@ app.post('/register', async (req, res) => {
             password,
         });
 
-        await newUser.save();
+        console.log('About to save newUser:', newUser);
+
+        const savedUser = await newUser.save();
+
+        console.log('User saved successfully:', savedUser);
 
         res.json({ message: 'User registered successfully.' });
     } catch (error) {
-        console.error(error);
+        console.error('Error:', error.message);
         res.status(500).json({ message: 'Internal Server Error', error: error.message });
     }
 });
