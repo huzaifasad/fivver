@@ -12,13 +12,9 @@ app.use(cors({
 }));
 mongoose.set('debug', true);
 
-const url = "mongodb+srv://fiverr:12345@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000, // or a value that works for your deployment
-  poolSize: 10,
-})
+// const url = "mongodb+srv://fiverr:12345@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://fiverr:12345@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log('connected to the database'))
 .catch(()=> console.log('not conncted'));
 
