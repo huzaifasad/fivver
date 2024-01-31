@@ -139,6 +139,7 @@ app.post('/register', async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error', error: error.message });
     }
 });
+
 app.get('/',(req,res)=>{
     res.send("this works well");
 })
