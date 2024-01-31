@@ -57,7 +57,7 @@ app.post('/register', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send("This works well");
+    res.send("working .....");
 });
 
 // Login route
