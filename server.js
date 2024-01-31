@@ -4,8 +4,11 @@ import cors from 'cors';
 
 const app = express();
 const port = 3001;
-app.use(cors());
-
+app.use(cors({
+    origin: "http://localhost:3000", // Update to your frontend URL
+    methods: ["POST", "GET","PUT","DELETE"],
+    credentials: true
+  }));
 // MongoDB connection
 const uri = "mongodb+srv://fiverr:12345@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
