@@ -92,9 +92,15 @@ app.use(cors({
 
 // MongoDB connection
 const uri = "mongodb+srv://fiverr:12345@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to the database'))
-    .catch((error) => console.error('Error connecting to the database:', error.message));
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 10000, // Set a value that works for your environment
+})
+.then(() => console.log('Connected to the database'))
+.catch((error) => console.error('Error connecting to the database:', error.message));
+
 
 // User model
 const UserSchema = new mongoose.Schema({
