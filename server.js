@@ -4,11 +4,11 @@ import cors from 'cors';
 
 const app = express();
 const port = 3001;
-app.use(cors({
-  origin: "http://localhost:3000", // Update to your frontend URL
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: "http://localhost:3000", // Update to your frontend URL
+//   methods: ["POST", "GET", "PUT", "DELETE"],
+//   credentials: true
+// }));
 
 // MongoDB connection
 const uri = "mongodb+srv://fiverr:GAYRNj2BVGB6w5NF@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
