@@ -11,17 +11,11 @@ app.use(cors({
     credentials: true
 }));
 
-// MongoDB connection
-const uri = "mongodb+srv://fiverr:12345@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
+const url = "mongodb+srv://fiverr:12345@cluster0.rxtzhta.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log('connected to the database'))
+.catch(()=> console.log('not conncted'));
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000, // Increased timeout to 30 seconds
-  poolSize: 10, // Increased connection pool size
-})
-.then(() => console.log('Connected to the database'))
-.catch((error) => console.error('Error connecting to the database:', error.message));
 
 
 // User model
